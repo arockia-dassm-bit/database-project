@@ -32,21 +32,24 @@ Foreign keys maintain relationships between related tables.
 The following fields should be required:
 
 - All primary key columns.
+- All PATIENT fields.
 - APPOINTMENT.Patient_ID, Doctor_ID, Appointment_Date, Appointment_Time, and Status.
-- DOCTOR.Department_ID.
-- PRESCRIPTION.Record_ID and Medication_ID.
-- BILL.Amount and Bill_Date.
+- DOCTOR.First_Name, Last_Name, and Department_ID.
+- DEPARTMENT.Department_ID and Department_Name.
+- MEDICAL_RECORD.Patient_ID and Record_Date.
+- PRESCRIPTION.Record_ID, Medication_ID, Dosage, Frequency, and Start_Date.
+- MEDICATION.Medication_Name.
+- BILL.Record_ID, Amount, Bill_Date, and Payment_Status.
 
 NOT NULL prevents required information from being left empty.
-
 ## 4. UNIQUE
 
+- PATIENT.Email should be unique.
+- DOCTOR.Email should be unique when provided.
 - DEPARTMENT.Department_Name should be unique.
 - MEDICATION.Medication_Name should be unique.
-- PATIENT.Email should be unique when provided.
 
 UNIQUE prevents duplicate values where duplicates are not appropriate.
-
 ## 5. CHECK
 
 - BILL.Amount must be greater than or equal to zero.
